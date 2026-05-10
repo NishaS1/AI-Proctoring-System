@@ -1,0 +1,12 @@
+flask
+flask-cors
+opencv-python
+mediapipe
+numpy
+tensorflow
+keras
+pyaudio
+wave
+scipy
+pymongo
+dnspython

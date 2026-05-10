@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Live Monitoring</h1>
+    <div id="reports"></div>
+    <button onclick="fetchReport()">Refresh Report</button>
+    <script>
+        async function fetchReport() {
+            const res = await fetch('http://localhost:5000/get-report');
+            const data = await res.json();
+            document.getElementById('reports').innerHTML = 
+                `<p>Score: ${data.score}</p>
+                 <p>Flagged: ${data.flagged ? '⚠️ Yes' : '✅ No'}</p>
+                 <p>Events: ${data.events.join(', ')}</p>`;
+        }
+    </script>
+</body>
+</html>
